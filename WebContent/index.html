@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.lettering-0.6.1.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/links.js"></script>
+<script>
+	$(function() {
+		gotoHome();
+		$("#logo").lettering();
+		buildLogo();
+		setInterval(function() {
+			buildLogo();
+		}, 1000);
+	});
+</script>
+</head>
+<body>
+<div id="logo" class="topcorner">Come * Read * With * Us * </div>
+<div class="topcorner"><i onclick="gotoHome()" class="fa fa-book"></i></div>
+<div id="container">
+<div id="header">
+<h1>The Reading Circle</h1>
+<!-- inside quotes for the onclick, put javascript to run when the Home button is clicked -->
+<span onclick="gotoHome()" class="choice1 choice">Home</span> <i class="fa fa-bookmark"></i> 
+<span onclick="gotoCollection()" class="choice2 choice">Collection</span>
+</div>
+<div id="nav">
+</div>
+<div id="body">
+</div>
+<div id="footer">
+Copyright @ TheReadingCircle.com
+</div>
+</div>
+
+<!-- html blocks -->
+<div id="home_nav" class="hidden"></div>
+<div id="home_body" class="hidden">
+<div style="overflow:visible">
+	<div class="centeredBox">
+		<div class="msg"></div>
+		<div class="signIn" >
+			<div>
+				<form class="form">
+					Please sign in to
+					<br/>
+					The Reading Circle
+					<br/>
+					<br/>
+					<div>
+					Name: <input type="text" size="12" class="name"/>
+					</div>
+					<br/>
+				</form>
+			</div>
+			<div style="margin-left:auto; width:150px">
+				<span onclick='gotoHomeAfterSignIn($("#body .name").val())' class="link">Sign In</span>
+			</div>
+		</div>
+		<div class="instructions">
+				Click on <span onclick="gotoCollection()" class='link'>Collection</span> to maintain your Reading Circle collection.
+				<br>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="collection_nav" class="hidden">
+<div onclick="gotoCollectionShowAll('.choice1')" class="highlight choice1 choice">All</div>
+<div onclick="gotoCollectionShowCurrentlyReading('.choice2')" class="choice2 choice special">Currently Reading</div>
+<div onclick="gotoCollectionShowAtMyDesk('.choice3')" class="choice3 choice special">Available At My Desk</div>
+<div onclick="gotoCollectionShowUnknowns('.choice4')" class="choice4 choice special">Status Unknown</div>
+</div>
+
+<div id="collection_body" class="hidden">
+<div class="msg">loading ...</div>
+<div class="items"></div>
+</div>
+
+<div id="collection_item" class="hidden" style="width:100%">
+	<div class="item"><div class="title">$(title)</div> <span>reader</span> <span>status</span> <div style="padding:10px;margin:5px">links</div></div>
+</div>
+<div id="collection_item_unknown" class="hidden">
+	<div class="item"><div class="title">$(title)</div> <span></span> <span>status unknown</span> <div style="padding:10px; margin:5px">links</div></div>
+</div>
+<div id="item_checkin" class="hidden">
+	<span class="link" onclick="gotoCollectionAfterCheckin('item')">done reading</span>
+</div>
+<div id="item_checkout" class="hidden">
+	<span class="link" onclick="gotoCollectionAfterCheckout('item')">start reading</span>
+</div>
+<div id="item_at_my_desk" class="hidden">
+	<span class="link" onclick="gotoCollectionAfterMarkAtMyDesk('item')">at my desk</span>
+</div>
+<div id="item_status_unknown" class="hidden">
+	<span class="link" onclick="gotoCollectionAfterMarkUnknown('item')">status unknown</span>
+</div>  
+</body>
+</html>

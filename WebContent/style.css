@@ -1,0 +1,147 @@
+html, body {
+	margin:0;
+	padding:0;
+	height:100%; /* needed for container min-height */
+	background-color:#eeeeee;
+
+}
+#container {
+	position:relative; /* needed for footer positioning*/
+	height:auto !important; /* real browsers */
+	min-height:100%; /* real browsers */
+}
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:10px;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  cursor:default;
+}
+#content {
+	background-color:#eeeeee;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    width:200px;
+    float:left;
+    padding:0px;	      
+}
+#body {
+    /*line-height:30px;*/
+    background-color:white;
+    width:auto;
+    min-height:500px;
+   	overflow:hidden;
+    padding:10px;
+    padding-bottom:50px	      
+}
+#footer {
+	position:absolute;
+	width:100%;
+	bottom:0; /* stick to bottom */
+	background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 	 
+}
+
+.hidden {
+	display:none
+}
+
+#header .highlight {
+	color:yellow;
+}
+
+#body .highlight {
+	font-style:italic;
+	color:red;
+}
+
+#nav .highlight {
+	background-color:gray;
+	color:#eeeeee;
+}
+
+.link {
+	background-color:yellow;
+	padding:10px;
+	cursor:pointer;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.choice {
+	padding:10px;
+	cursor:pointer;
+}
+
+.item {
+	border-style:solid;
+	border-width:1px;
+	border-color:lightgray;
+	margin:5px;
+	padding:5px;
+}
+
+.title {
+	font-weight:bold;
+}
+
+.topcorner {
+	position:absolute;
+	top:0;
+	left:0;
+	color:white;
+	z-index:50;
+}
+  
+.topcorner span {
+	position:absolute;
+	top:15px;
+	left:50px;
+	height: 40px;
+	width: 20px;
+	-ms-transform-origin: bottom center;
+	-webkit-transform-origin: bottom center;
+	transform-origin: bottom center;
+	font: 10px Monaco, MonoSpace;
+	color: light-gray;
+}
+
+.topcorner i {
+	position:absolute;
+	top:33px;
+	left:40px;
+	font-size: 40px;
+	color:yellow;
+	cursor:pointer;
+}
+
+.centeredBox {
+	border-style:solid;
+	border-width:1px;
+	border-color:lightgray;
+	padding:20px;
+	width:400px;
+	height:350px;
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	font-size:40px;
+	background-color:lightgray;
+}
+
+.centeredBox .msg {
+	background-color:lightgray;
+}
+
+.centeredBox input {
+	font-size:40px;
+}
