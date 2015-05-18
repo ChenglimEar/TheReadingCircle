@@ -18,7 +18,12 @@ public class Repository {
 		if (repoPath != null) {
 			repo = new File(repoPath);
 		} else {
-			repo = new File("repo");
+			String dataDir = System.getenv("OPENSHIFT_DATA_DIR");
+			if ((dataDir != null) && !dataDir.isEmpty()) {
+				repo = new File(dataDir,"repo");
+			} else {
+				repo = new File("repo");
+			}
 		}
 		System.out.println("repo: " + repo.getAbsolutePath());
 		if (!repo.exists())
