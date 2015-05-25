@@ -10,11 +10,11 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.picostuff.core.repo.SystemInfo;
 import com.picostuff.readingcircle.repo.ExternalItem;
 import com.picostuff.readingcircle.repo.Item;
 import com.picostuff.readingcircle.repo.Reader;
 import com.picostuff.readingcircle.repo.ReadingCircleDataStore;
-import com.picostuff.readingcircle.repo.SystemInfo;
 
 public class ReadingCircle {
 	

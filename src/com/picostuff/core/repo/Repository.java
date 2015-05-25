@@ -33,7 +33,7 @@ public class Repository {
 	protected void clear() {
 		String[] colKeys = repo.list();
 		for (String key:colKeys) {
-			Collection collection = new Collection().fillFromRepo(this, key);
+			Collection collection = new Collection().fillFromRepo(key);
 			collection.clear();
 		}
 		
@@ -61,6 +61,11 @@ public class Repository {
 		saver.syncLoad(object, file);
 	}
 	
+	protected void waitForChange(File file) {
+		SyncSaver saver = getSaver(file.getName());
+		saver.waitForChange();
+	}
+	
 	protected File makeCollection(String colKey) {
 		File collection = getCollection(colKey);
 		if (!collection.exists())
@@ -69,7 +74,7 @@ public class Repository {
 	}
 	
 	protected void fillCollection(Collection collection, String key) {
-		collection.setFile(this,makeCollection(key));
+		collection.setFile(makeCollection(key));
 	}
 	protected File getCollection(String colKey) {
 		File collection = new File(repo,colKey);

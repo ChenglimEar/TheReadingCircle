@@ -9,12 +9,10 @@ import com.picostuff.core.repo.DataStore;
 public class ReadingCircleDataStore extends DataStore {
 	private Collection readers;
 	private Collection items;
-	private Collection systems;
 
 	public ReadingCircleDataStore() {
-		readers = new Collection().fillFromRepo(repo, "readers");
-		items = new Collection().fillFromRepo(repo, "items");
-		systems = new Collection().fillFromRepo(repo,"systems");
+		readers = new Collection().fillFromRepo("readers");
+		items = new Collection().fillFromRepo("items");
 		
 	}
 	public Collection getReaders() {
@@ -22,9 +20,6 @@ public class ReadingCircleDataStore extends DataStore {
 	}
 	public Collection getItems() {
 		return items;
-	}
-	public Collection getSystems() {
-		return systems;
 	}
 	public boolean readerExists(String key) {
 		return readers.objectExists(key);
@@ -42,9 +37,6 @@ public class ReadingCircleDataStore extends DataStore {
 		return (Item)items.fillObject(new Item(), key);
 	}
 	
-	public SystemInfo getSystem(String key) {
-		return (SystemInfo)systems.fillObject(new SystemInfo(), key);
-	}
 	
 	public String[] getReaderKeys() {
 		return readers.getKeys();
@@ -52,9 +44,6 @@ public class ReadingCircleDataStore extends DataStore {
 	
 	public String[] getItemKeys() {
 		return items.getKeys();
-	}
-	public String[] getSystemKeys() {
-		return systems.getKeys();
 	}
 	
 	////////////

@@ -1,6 +1,5 @@
-package com.picostuff.readingcircle.repo;
+package com.picostuff.core.repo;
 
-import com.picostuff.core.repo.RepoObject;
 
 public class SystemInfo extends RepoObject {
 	

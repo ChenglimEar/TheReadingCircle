@@ -13,12 +13,20 @@ public class SyncSaver {
 	public synchronized void syncSave(RepoObject object) {
 		object.prepareToSave();
 		save(object.prop, object.getFile());
+		notifyAll();
 	}
 	public synchronized void syncLoad(RepoObject object, File file) {
 		Properties prop = loadProperties(file);
 		object.setFile(file,prop);
 	}
-	
+	public synchronized void waitForChange() {
+		try {
+			wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	protected void save(Properties prop, File file) {
 		OutputStream output = null;
 		 

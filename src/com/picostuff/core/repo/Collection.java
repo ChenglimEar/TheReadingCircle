@@ -3,15 +3,18 @@ package com.picostuff.core.repo;
 import java.io.File;
 
 public class Collection {
-	private Repository repo;
+	protected Repository repo;
 	private File file;
 	
-	protected void setFile(Repository repo, File file) {
-		this.repo = repo;
+	public Collection() {
+		repo = Repository.INSTANCE;
+	}
+	
+	protected void setFile(File file) {
 		this.file = file;
 	}
 	
-	public Collection fillFromRepo(Repository repo, String key) {
+	public Collection fillFromRepo(String key) {
 		repo.fillCollection(this, key);
 		return this;
 	}
@@ -40,6 +43,15 @@ public class Collection {
 				new AnyRepoObject().fillFromCollection(this, key).remove();
 			}
 		}
+	}
+	public String keyFromName(String name) {
+		return name + ".properties";
+	}
+	public void save(RepoObject object) {
+		repo.lockAndSave(object);
+	}
+	public void waitForChangeByName(String name) {
+		repo.waitForChange(getFile(keyFromName(name)));
 	}
 
 }
